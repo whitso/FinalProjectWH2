@@ -1,10 +1,107 @@
 ﻿@page
-@model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
+@model dynamic
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Camo Tracker</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Gamertag</th>
+            <th>Challenges</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Gamertag</td>
+                <td>
+                    @foreach (var progress in user.Progress)
+                    {
+                        if (progress.IsCompleted)
+                        {
+                            <span>@progress.Challenge.ChallengeName (Completed)</span><br />
+                        }
+                        else
+                        {
+                            <span>@progress.Challenge.ChallengeName</span><br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<section>
+    <h2>Users</h2>
+
+    <form method="get" asp-page="./Index">
+        <input type="text" name="userSearchString" />
+        <button type="submit">Search Users</button>
+    </form>
+
+    <a asp-page="./Index" asp-route-userSortOrder="Username">Sort by Username</a>
+    
+
+    @foreach (var user in Model.Users.Skip((Model.UserPageNumber - 1) * Model.UserPageSize).Take(Model.UserPageSize))
+    {
+        <div>@user.Username</div>
+        
+    }
+
+    <div>
+        <a asp-page="./Index" asp-route-userPageNumber="@(Model.UserPageNumber - 1)">Previous</a>
+        <span>User Page @(Model.UserPageNumber) of @(Model.UserTotalPages)</span>
+        <a asp-page="./Index" asp-route-userPageNumber="@(Model.UserPageNumber + 1)">Next</a>
+    </div>
+</section>
+
+<section>
+    <h2>Challenges</h2>
+
+    <form method="get" asp-page="./Index">
+        <input type="text" name="challengeSearchString" />
+        <button type="submit">Search Challenges</button>
+    </form>
+
+    <a asp-page="./Index" asp-route-challengeSortOrder="ChallengeName">Sort by ChallengeName</a>
+    
+
+    @foreach (var challenge in Model.Challenges.Skip((Model.ChallengePageNumber - 1) * Model.ChallengePageSize).Take(Model.ChallengePageSize))
+    {
+        <div>@challenge.ChallengeName</div>
+        
+    }
+
+    <div>
+        <a asp-page="./Index" asp-route-challengePageNumber="@(Model.ChallengePageNumber - 1)">Previous</a>
+        <span>Challenge Page @(Model.ChallengePageNumber) of @(Model.ChallengeTotalPages)</span>
+        <a asp-page="./Index" asp-route-challengePageNumber="@(Model.ChallengePageNumber + 1)">Next</a>
+    </div>
+</section>
+
+<section>
+    <h2>Challenge Progresses</h2>
+
+    <form method="get" asp-page="./Index">
+        <input type="text" name="progressSearchString" />
+        <button type="submit">Search Progresses</button>
+    </form>
+
+    <a asp-page="./Index" asp-route-progressSortOrder="ProgressDescription">Sort by ProgressDescription</a>
+    
+
+    @foreach (var progress in Model.ChallengeProgresses.Skip((Model.ProgressPageNumber - 1) * Model.ProgressPageSize).Take(Model.ProgressPageSize))
+    {
+        <div>@progress.ProgressDescription</div>
+        
+    }
+
+    <div>
+        <a asp-page="./Index" asp-route-progressPageNumber="@(Model.ProgressPageNumber - 1)">Previous</a>
+        <span>Progress Page @(Model.ProgressPageNumber) of @(Model.ProgressTotalPages)</span>
+        <a asp-page="./Index" asp-route-progressPageNumber="@(Model.ProgressPageNumber + 1)">Next</a>
+    </div>
+</section>
+
