@@ -1,0 +1,8 @@
+C:\Users\Will\Desktop\New folder (2)\FinalProjectWH2\obj\Debug\net7.0\FinalProjectWH2.csproj.AssemblyReference.cache
+C:\Users\Will\Desktop\New folder (2)\FinalProjectWH2\obj\Debug\net7.0\FinalProjectWH2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Will\Desktop\New folder (2)\FinalProjectWH2\obj\Debug\net7.0\FinalProjectWH2.AssemblyInfoInputs.cache
+C:\Users\Will\Desktop\New folder (2)\FinalProjectWH2\obj\Debug\net7.0\FinalProjectWH2.AssemblyInfo.cs
+C:\Users\Will\Desktop\New folder (2)\FinalProjectWH2\obj\Debug\net7.0\FinalProjectWH2.csproj.CoreCompileInputs.cache
+C:\Users\Will\Desktop\New folder (2)\FinalProjectWH2\obj\Debug\net7.0\FinalProjectWH2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Will\Desktop\New folder (2)\FinalProjectWH2\obj\Debug\net7.0\FinalProjectWH2.RazorAssemblyInfo.cache
+C:\Users\Will\Desktop\New folder (2)\FinalProjectWH2\obj\Debug\net7.0\FinalProjectWH2.RazorAssemblyInfo.cs
